@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <MainMap streetlights={streetlights}/>
-      <TabularData id="tabulator" streetlights={streetlights}/>
+      <TabularData streetlights={streetlights}/>
     </>
   );
 }
