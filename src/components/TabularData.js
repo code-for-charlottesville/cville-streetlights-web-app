@@ -1,21 +1,21 @@
 import React from 'react'
-// import { ReactTabulator } from 'react-tabulator'
-// import 'react-tabulator/lib/styles.css';
 import * as ReactBootStrap from "react-bootstrap";
+import '../App.css'
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
 
 const TabularData = (props) => {
 
     //dataArray holds array of objects used to populate table
     const dataArray = []
 
-    //gets just first 25 streelights records
+    //gets just first 25 streelights records. For testing purposes
     for (const [i, v] of props.streetlights.features.entries()) {
         if (i < 25) {
             dataArray.push(v.properties);    // properties of each item is what contains the info about each streetlight 
         }   
     }
 
-    const renderData = (record, index) => {
+    const renderData = (record) => {
         return (
             <tr>
                 <td>{record.BASE_COLOR}</td>
@@ -64,9 +64,8 @@ const TabularData = (props) => {
     }
 
     return (
-        <div>
+        <div className="tableContainer">
             <ReactBootStrap.Table striped bordered hover variant="dark" responsive>  
-            <thead>
                 <tr>
                     <th>BASE_COLOR</th>
                     <th>BASIC_PREM</th>
@@ -110,7 +109,6 @@ const TabularData = (props) => {
                     <th>WORK_EFFEC</th>
                     <th>WORK_REQUE</th>
                 </tr>
-            </thead>
             <tbody>
                     {dataArray.map(renderData)}
             </tbody>
